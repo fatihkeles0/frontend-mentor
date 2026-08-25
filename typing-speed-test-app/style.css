@@ -11,6 +11,7 @@
     --clr-red-500: hsl(354, 63%, 57%);
     --clr-yellow-400: hsl(49, 85%, 70%);
     --clr-green-500: hsl(140, 63%, 57%);
+    --clr-blue-500: hsl(214, 100%, 55%);
 
     --ff-primary: "Sora", sans-serif;
 
@@ -30,21 +31,27 @@
     box-sizing: border-box;
 }
 
+
 html {
     height: 100%;
     font-size: 62.5%;
 }
 
+
 body {
     min-height: 100%;
     margin: 0;
+
     background-color: var(--clr-neutral-900);
     color: var(--clr-neutral-0);
+
     font-family: var(--ff-primary);
     font-size: 1.6rem;
     line-height: 1.5;
+
     -webkit-font-smoothing: antialiased;
 }
+
 
 h1,
 h2,
@@ -56,11 +63,13 @@ p {
     margin: 0;
 }
 
+
 ul {
     margin: 0;
     padding: 0;
     list-style: none;
 }
+
 
 button {
     border: 0;
@@ -68,10 +77,6 @@ button {
     cursor: pointer;
 }
 
-button,
-a {
-    color: inherit;
-}
 
 img {
     display: block;
@@ -83,19 +88,31 @@ img {
    HEADER
    ===================================== */
 
+.header {
+    width: min(100% - 3rem, 121.6rem);
+    margin-inline: auto;
+}
+
+
+/* =====================================
+   HEADER INFORMATION
+   ===================================== */
+
 .header__information {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 1.5rem 0;
+
+    padding-top: 3.2rem;
 }
 
 
-/* Changed: logo wrapper ve image ayrı class */
 .header__logo-image {
-    width: 2.7rem;
+    width: 22rem;
 }
 
+
+/* Personal best */
 
 .header__personal-best {
     display: flex;
@@ -110,7 +127,11 @@ img {
 
 
 .header__personal-best-text {
+    display: flex;
+    gap: 0.4rem;
+
     color: var(--clr-neutral-500);
+
     font-size: 1.5rem;
     font-weight: var(--fw-400);
 }
@@ -122,17 +143,48 @@ img {
 
 
 /* =====================================
+   INTERACTIVE HEADER
+   ===================================== */
+
+.header__interactive {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: relative;
+
+    margin-top: 5.8rem;
+    padding-bottom: 1.5rem;
+}
+
+
+/* Added:
+   Header'ın altında tek ortak çizgi */
+.header__interactive::after {
+    content: "";
+
+    position: absolute;
+
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    height: 1px;
+
+    background-color: var(--clr-neutral-500);
+    opacity: 0.5;
+}
+
+
+/* =====================================
    RESULTS
    ===================================== */
 
 .header__results {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    display: flex;
+    align-items: center;
 
-    margin-block: 3rem;
-
-    text-align: center;
+    gap: 2.5rem;
 }
 
 
@@ -140,21 +192,24 @@ img {
     position: relative;
 
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    align-items: baseline;
+
+    gap: 0.7rem;
 }
 
 
-/* Added: result kolonları arasındaki ayırıcılar */
 .header__result:not(:last-child)::after {
     content: "";
 
     position: absolute;
-    top: 10%;
-    right: -1rem;
+
+    top: 50%;
+    right: -1.25rem;
 
     width: 1px;
-    height: 80%;
+    height: 2.4rem;
+
+    transform: translateY(-50%);
 
     background-color: var(--clr-neutral-500);
     opacity: 0.5;
@@ -162,9 +217,8 @@ img {
 
 
 .header__result-label {
-    padding-inline: 1rem;
-
     color: var(--clr-neutral-500);
+
     font-size: 1.6rem;
     font-weight: var(--fw-400);
 }
@@ -181,117 +235,88 @@ img {
 }
 
 
-.header__result-value--accuracy {
+/* .header__result-value--accuracy {
     color: var(--clr-red-500);
-}
+} */
 
 
-.header__result-value--time {
+/* .header__result-value--time {
     color: var(--clr-yellow-400);
-}
+} */
 
 
 /* =====================================
-   TEST OPTIONS
+   OPTIONS
    ===================================== */
 
 .header__options {
-    position: relative;
-}
-
-
-/* Changed: pseudo-element artık options listesine bağlı */
-.header__options-list {
-    position: relative;
-
     display: flex;
-    justify-content: center;
-    gap: 1rem;
-
-    padding-inline: 2rem;
+    align-items: center;
 }
 
 
-.header__options-list::after {
-    content: "";
-
-    position: absolute;
-    z-index: -1;
-
-    top: 130%;
-    left: 5%;
-
-    width: 90%;
-    height: 1px;
-
-    background-color: var(--clr-neutral-500);
-    opacity: 0.8;
-}
-
-
-.header__options-item {
-    position: relative;
-
-    width: 50%;
-}
-
-
-.header__options-button {
-    width: 100%;
-    padding: 0.8rem 1rem;
-
-    border: 1px solid var(--clr-neutral-500);
-    border-radius: 0.5rem;
-
-    background-color: var(--clr-neutral-900);
-    color: var(--clr-neutral-0);
-
-    font-size: 1.5rem;
-}
-
-
-/* Changed: dropdown başlangıçta gizli */
-.header__dropdown {
-    display: none;
-
-    position: absolute;
-    z-index: 10;
-
-    top: calc(100% + 0.5rem);
-    left: 0;
-
-    width: 100%;
-
-    padding: 0.5rem;
-
-    border: 1px solid var(--clr-neutral-500);
-    border-radius: 0.5rem;
-
-    background-color: var(--clr-neutral-800);
-}
-
-
-.header__dropdown-list {
+.header__option-group {
     display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
+    align-items: center;
+
+    gap: 0.8rem;
 }
 
 
-.header__dropdown-button {
-    width: 100%;
-    padding: 0.7rem;
+.header__option-label {
+    color: var(--clr-neutral-500);
 
-    background: transparent;
-    color: var(--clr-neutral-0);
-
-    text-align: left;
     font-size: 1.4rem;
 }
 
 
-.header__dropdown-button:hover {
-    background-color: var(--clr-neutral-900);
+.header__option-buttons {
+    display: flex;
+    align-items: center;
+
+    gap: 0.5rem;
+}
+
+
+.header__option-button {
+    padding: 0.55rem 1rem;
+
+    border: 1px solid var(--clr-neutral-500);
+    border-radius: 0.6rem;
+
+    background-color: transparent;
+    color: var(--clr-neutral-0);
+
+    font-size: 1.4rem;
+}
+
+
+.header__option-button:hover {
+    border-color: var(--clr-blue-500);
+}
+
+
+.header__option-button--active {
+    border-color: var(--clr-blue-500);
+    color: var(--clr-blue-500);
+}
+
+
+.header__option-button i {
+    display: none;
+}
+
+
+/* Difficulty / Mode divider */
+
+.header__option-divider {
+    width: 1px;
+    height: 2.5rem;
+
+    margin-inline: 1rem;
+
+    background-color: var(--clr-neutral-500);
+    opacity: 0.5;
 }
 
 
@@ -300,69 +325,95 @@ img {
    ===================================== */
 
 .typing-test-app {
-    position: relative;
-}
-
-
-.typing-test-app::after {
-    content: "";
-
-    position: absolute;
-    right: 8%;
-    bottom: 4%;
-
-    width: 85%;
-    height: 1px;
-
-    background-color: var(--clr-neutral-500);
+    width: min(100% - 3rem, 121.6rem);
+    margin-inline: auto;
 }
 
 
 .typing-test-app__container {
+    position: relative;
+
     min-height: 65vh;
 
-    padding: 3rem 1.5rem;
+    padding-top: 3rem;
 }
 
 
-/* Changed: passage artık h1 değil, normal content container */
 .typing-text {
-    font-size: 2.5rem;
-    line-height: 1.6;
+    color: var(--clr-neutral-500);
+
+    font-size: 3.2rem;
+    line-height: 1.65;
+
+
+    filter: blur(4px);
+    user-select: none;
 }
 
 
 /* =====================================
-   RESTART BUTTON
+   START TEST OVERLAY
    ===================================== */
 
-.typing-test-app__restart {
-    display: flex;
-    justify-content: center;
+.typing-test-app__start {
+    position: absolute;
 
-    padding-bottom: 3rem;
+    top: 50%;
+    left: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    transform: translate(-50%, -50%);
 }
 
 
-.typing-test-app__restart-button {
-    display: flex;
-    align-items: center;
-    gap: 0.8rem;
+.typing-test-app__start-button {
+    padding: 1.4rem 2.5rem;
 
-    padding: 1rem 3.5rem;
+    border-radius: 0.9rem;
 
-    border-radius: 0.8rem;
-
-    background-color: var(--clr-neutral-800);
+    background-color: var(--clr-blue-500);
     color: var(--clr-neutral-0);
 
-    font-size: 1.5rem;
-    font-weight: var(--fw-400);
+    font-size: 1.8rem;
+    font-weight: var(--fw-600);
+
+    white-space: nowrap;
 }
 
 
-.typing-test-app__restart-button:hover {
-    background-color: var(--clr-neutral-500);
+.typing-test-app__start-button:hover {
+    filter: brightness(1.1);
+}
+
+
+.typing-test-app__start-hint {
+    margin-top: 1.5rem;
+
+    color: var(--clr-neutral-0);
+
+    font-size: 1.6rem;
+    font-weight: var(--fw-600);
+
+    white-space: nowrap;
+}
+
+
+/* =====================================
+   STARTED STATE
+   ===================================== */
+
+
+.typing-test-app--started .typing-text {
+    filter: none;
+    user-select: auto;
+}
+
+
+.typing-test-app--started .typing-test-app__start {
+    display: none;
 }
 
 
@@ -370,27 +421,187 @@ img {
    RESPONSIVE
    ===================================== */
 
-/* Added: mobile layout kontrolü */
-@media (max-width: 600px) {
+@media (max-width: 599px) {
 
-    .header__results {
-        gap: 1rem;
+    .header {
+        width: calc(100% - 3.2rem);
     }
 
-    .header__result-label {
-        padding-inline: 0.5rem;
+    .header__logo-image{
+
+        width: 2.7rem;
+    }
+
+    /* Header top */
+
+    .header__information {
+        padding-top: 2rem;
+    }
+
+
+
+    .header__personal-best {
+        gap: 0.6rem;
+    }
+
+
+    .header__personal-best-text {
         font-size: 1.4rem;
     }
 
-    .header__result-value {
-        font-size: 1.6rem;
+
+    .header__personal-best-label {
+        font-size: 0;
     }
 
-    .typing-text {
-        font-size: 2rem;
+
+    .header__personal-best-label::after {
+        content: "Best:";
+        font-size: 1.4rem;
     }
+
+
+    /* Interactive */
+
+    .header__interactive {
+        flex-direction: column;
+        align-items: stretch;
+
+        margin-top: 3rem;
+        padding-bottom: 1.4rem;
+    }
+
+
+    /* Results */
+
+    .header__results {
+        justify-content: space-between;
+
+        gap: 0;
+    }
+
+
+    .header__result {
+        flex: 1;
+
+        flex-direction: column;
+        align-items: center;
+
+        gap: 0.1rem;
+    }
+
+
+    .header__result:not(:last-child)::after {
+        right: 0;
+
+        height: 4.8rem;
+    }
+
+
+    .header__result-label {
+        font-size: 1.4rem;
+    }
+
+
+    .header__result-value {
+        font-size: 2.4rem;
+    }
+
+
+    /* Options */
+
+    .header__options {
+        margin-top: 1.4rem;
+    }
+
+
+    .header__option-group {
+        flex: 1;
+    }
+
+
+    .header__option-label {
+        display: none;
+    }
+
+
+    .header__option-buttons {
+        width: 100%;
+    }
+
+
+    .header__option-button {
+        width: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 0.8rem;
+
+        padding-block: 0.6rem;
+
+        font-size: 1.4rem;
+    }
+
+
+    /* Mobile'da yalnızca seçili seçenek görünür */
+    .header__option-button--desktop-only {
+        display: none;
+    }
+
+
+    .header__option-button i {
+        display: inline-block;
+
+        font-size: 1.2rem;
+    }
+
+
+    .header__option-divider {
+        height: 3.2rem;
+
+        margin-inline: 1rem;
+    }
+
+
+    /* Typing area */
+
+    .typing-test-app {
+        width: calc(100% - 3.2rem);
+    }
+
 
     .typing-test-app__container {
         min-height: 60vh;
+
+        padding-top: 3rem;
+    }
+
+
+    .typing-text {
+        font-size: 2rem;
+        line-height: 1.8;
+    }
+
+
+    /* Start button */
+
+    .typing-test-app__start {
+        top: 52%;
+    }
+
+
+    .typing-test-app__start-button {
+        color: var(--clr-neutral-0);
+        padding: 1.4rem 2.4rem;
+
+        font-size: 1.7rem;
+    }
+
+
+    .typing-test-app__start-hint {
+        margin-top: 1.5rem;
+
+        font-size: 1.6rem;
     }
 }

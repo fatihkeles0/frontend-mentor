@@ -1,7 +1,5 @@
 // get data.json file content
 
-let randomEasyTextPassage;
-let randomTextNumber;
 
 fetch('data.json')
 
