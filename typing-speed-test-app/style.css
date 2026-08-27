@@ -293,12 +293,21 @@ img {
 
 .header__option-button:hover {
     border-color: var(--clr-blue-500);
+    color: var(--clr-blue-500);
+
 }
 
 
 .header__option-button--active {
     border-color: var(--clr-blue-500);
     color: var(--clr-blue-500);
+}
+
+.header__option-button:focus{
+
+    outline: 2px solid var(--clr-blue-500);
+    color: var(--clr-blue-500);
+    
 }
 
 
@@ -336,6 +345,7 @@ img {
     min-height: 65vh;
 
     padding-top: 3rem;
+    padding-inline: 2rem;
 }
 
 
@@ -417,11 +427,26 @@ img {
 }
 
 
+span.current{
+
+    background-color: var(--clr-neutral-800);
+}
+
+
+span.correct{
+    color: var(--clr-green-500);
+}
+
+span.inCorrect{
+    color: var(--clr-red-500);
+    border-bottom: 2px solid var(--clr-red-500);
+}
+
 /* =====================================
    RESPONSIVE
    ===================================== */
 
-@media (max-width: 599px) {
+@media (max-width: 940px) {
 
     .header {
         width: calc(100% - 3.2rem);
@@ -429,7 +454,7 @@ img {
 
     .header__logo-image{
 
-        width: 2.7rem;
+        width: 3.7rem;
     }
 
     /* Header top */
@@ -579,7 +604,7 @@ img {
 
 
     .typing-text {
-        font-size: 2rem;
+        font-size: 3rem;
         line-height: 1.8;
     }
 
