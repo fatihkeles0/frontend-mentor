@@ -6,29 +6,14 @@ const typingText = document.getElementById("typing-text");
 // typing test start button
 const typingTestStartBtn = document.querySelector(".typing-test-app__start-button");
 // typing test start text
-const typingTestStartText = document.getElementById("typing-test-app__start-hint");
-// current letter 
+const typingTestStartHint = document.getElementById("typing-test-app__start-hint")
+// all span letter
+const currentLetter = typingText.querySelectorAll("span");
+
 let current = 0;
 let currentText = "";
 let isStarted = false;
 let isFinished = false;
-
-function run() {
-    typingTestStartBtn.addEventListener("click", typingTestStart);
-    typingTestStartText.addEventListener("click", typingTestStart);
-    body.addEventListener("keydown", keyListener);
-}
-
-
-function typingTestStart() {
-    isStarted = true;
-    typingTestApp.classList.remove('typing-test-app--not-started');
-    typingTestApp.classList.add('typing-test-app--started');
-
-}
-
-
-// get data.json file content
 
 fetch('data.json')
 
@@ -37,100 +22,144 @@ fetch('data.json')
     })
 
     .then(function (data) {
-
-        const randomTextNumber = Math.floor((Math.random() * data.easy.length))
-        const randomEasyTextPassage = data.easy[randomTextNumber].text;
-        // writting the typing text
-        for (let everyLetter of randomEasyTextPassage) {
-            createLetterSpan(everyLetter);
-        }
-
-        function createLetterSpan(letter) {
-            const newSpan = document.createElement("span");
-            newSpan.className = "spanLetter";
-            newSpan.textContent = letter;
-            typingText.appendChild(newSpan);
-            setCurrentLetter(typingText);
-        }
+        getRandomTextWithIndex(data);
     })
 
-
     .catch(function (error) {
-
-        console.log("Error json is not found : ", error);
+        console.log("Error json is not found ! ", error);
     });
 
 
-function setCurrentLetter(typingText) {
-    let currentLetterSpan = typingText.querySelectorAll("span");
-
-    currentLetterSpan[current].classList.add("current");
-    currentText = currentLetterSpan[current].textContent;
-
+function getRandomTextWithIndex(data) {
+    let createRandomNumber = Math.floor(Math.random() * data.easy.length);
+    let randomText = data.easy[createRandomNumber].text;
+    renderTextAsSpans(randomText);
 }
 
 
-function keyListener(e) {
+function renderTextAsSpans(randomText) {
+    for (let everyLetter of randomText) {
+
+        let newSpan = document.createElement("span");
+
+        newSpan.className = "letter";
+
+        newSpan.textContent = everyLetter;
+
+        typingText.appendChild(newSpan);
+        
+    }
+    setCurrentLetter(typingText);
+}
+
+
+function run() {
+    // Start typing text events
+    typingTestStartBtn.addEventListener("click", handleStartClick);
+    typingTestStartHint.addEventListener("click", handleStartClick);
+    // Handle to key and check it
+    body.addEventListener("keydown", handleKeyDown);
+}
+
+
+function setCurrentLetter(typingText) {
+
+    currentLetter[current].classList.add("current");
+    currentText = currentLetter[current].textContent;
+}
+
+// start typing text.
+function handleStartClick() {
+
+    typingTestApp.classList.remove("typing-test-app--not-started");
+    typingTestApp.classList.add("typing-test-app--started");
+    isStarted = true;
+}
+
+// handle and lisyten the user input keys.
+function handleKeyDown(e) {
+   
     if (isStarted === true) {
-        if (isFinished === false) {
-            if (current > 0) {
+                // delete key event
+        if (e.key === "Backspace") {
+            setDeleteLetter();
+            return;
+        }
+        // filter : capslock, shift etc...
+        
+        if (e.key.length !== 1){
+            return;
+        }
 
-                if (e.key === "Backspace") {
-                    let currentLetter = typingText.querySelectorAll("span");
-                    currentLetter[current].classList.remove('current');
-                    current -= 1;
-                    currentLetter[current].classList.remove('correct');
-                    currentLetter[current].classList.remove('inCorrect');
-                    currentLetter[current].classList.add('current');
-                    currentText = currentLetter[current].textContent;
-                    return;
+        // correct incorrect situtation
+        if (e.key === currentText) {
+            setCorrectLetter();
+        } else {
+            setWrongLetter();
+        }
 
-                }
-            }
+    }
+}
 
-            if (e.key.length > 3) {
-                return;
-            }
 
-            if (e.key === currentText) {
-                let currentLetter = typingText.querySelectorAll("span");
-                currentLetter[current].classList.remove('current');
-                currentLetter[current].classList.add('correct');
-                current++;
-                if (current !== currentLetter.length) {
-                    currentLetter[current].classList.add('current');
-                    currentText = currentLetter[current].textContent;
-                }
-                else {
-                    isFinished = true;
-                    return;
-                }
-            }
 
-            else {
-                let currentLetter = typingText.querySelectorAll("span");
-                currentLetter[current].classList.remove('current');
-                currentLetter[current].classList.add('inCorrect');
-                current += 1
-                if (current !== currentLetter.length) {
-                    currentLetter[current].classList.add('current');
-                    currentText = currentLetter[current].textContent;
-                }
-                else {
-                    isFinished = true;
-                    return;
-                }
+function setCorrectLetter() {
+    if (isFinished === false) {
 
-            }
+        currentLetter[current].classList.remove("current");
+        currentLetter[current].classList.add("correct");
+        current++;
 
+        if (current !== currentLetter.length) {
+            currentLetter[current].classList.add("current");
+            currentText = currentLetter[current].textContent;
+        }
+        else {
+            isFinished = true;
+            return;
+        }
+    }
+
+
+
+}
+
+function setWrongLetter() {
+    if (isFinished === false) {
+
+        currentLetter[current].classList.remove("current");
+        currentLetter[current].classList.add("inCorrect");
+
+        current++;
+        if (current !== currentLetter.length) {
+
+            currentLetter[current].classList.add("current");
+            currentText = currentLetter[current].textContent;
+        }
+        else {
+            isFinished = true;
+            return;
         }
     }
 }
 
-run()
 
+function setDeleteLetter() {
 
+    if (current > 0){
+        if (currentLetter[current]){
 
+            currentLetter[current].classList.remove("current");
+        }
+        current--;
+        currentLetter[current].classList.remove("correct");
+        currentLetter[current].classList.remove("inCorrect");
+        currentLetter[current].classList.add("current");
+        currentText = currentLetter[current].textContent;
+        isFinished = false;
+        return;
+    }
 
+}
 
-
+run();

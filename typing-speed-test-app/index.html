@@ -27,7 +27,7 @@
     <link
         rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
-        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCr8nVqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
+        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCrvNqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
     >
@@ -46,7 +46,6 @@
             <!-- Header top -->
             <div class="header__information">
 
-                <!-- Changed: desktop/mobile logo assetleri ayrıldı -->
                 <picture class="header__logo">
                     <source
                         media="(min-width: 600px)"
@@ -60,7 +59,6 @@
                     >
                 </picture>
 
-
                 <div class="header__personal-best">
 
                     <img
@@ -70,6 +68,7 @@
                     >
 
                     <p class="header__personal-best-text">
+
                         <span class="header__personal-best-label">
                             Personal best:
                         </span>
@@ -80,6 +79,7 @@
                         >
                             00 WPM
                         </span>
+
                     </p>
 
                 </div>
@@ -94,6 +94,7 @@
                 <div class="header__results">
 
                     <div class="header__result">
+
                         <span class="header__result-label">
                             WPM:
                         </span>
@@ -101,10 +102,12 @@
                         <span class="header__result-value header__result-value--wpm">
                             0
                         </span>
+
                     </div>
 
 
                     <div class="header__result">
+
                         <span class="header__result-label">
                             Accuracy:
                         </span>
@@ -112,10 +115,12 @@
                         <span class="header__result-value header__result-value--accuracy">
                             100%
                         </span>
+
                     </div>
 
 
                     <div class="header__result">
+
                         <span class="header__result-label">
                             Time:
                         </span>
@@ -123,6 +128,7 @@
                         <span class="header__result-value header__result-value--time">
                             60
                         </span>
+
                     </div>
 
                 </div>
@@ -139,7 +145,6 @@
 
                         <div class="header__option-buttons">
 
-                            <!-- Desktop: visible / Mobile: hidden -->
                             <button
                                 type="button"
                                 class="header__option-button header__option-button--desktop-only"
@@ -147,7 +152,6 @@
                                 Easy
                             </button>
 
-                            <!-- Desktop: visible / Mobile: hidden -->
                             <button
                                 type="button"
                                 class="header__option-button header__option-button--desktop-only"
@@ -155,14 +159,12 @@
                                 Medium
                             </button>
 
-                            <!-- Selected option -->
                             <button
                                 type="button"
-                                class="header__option-button header__option-button"
+                                class="header__option-button"
                             >
                                 <span>Hard</span>
 
-                                <!-- Mobile only -->
                                 <i class="fa-solid fa-angle-down"></i>
                             </button>
 
@@ -182,18 +184,15 @@
 
                         <div class="header__option-buttons">
 
-                            <!-- Selected option -->
                             <button
                                 type="button"
-                                class="header__option-button header__option-button"
+                                class="header__option-button"
                             >
                                 <span>Timed (60s)</span>
 
-                                <!-- Mobile only -->
                                 <i class="fa-solid fa-angle-down"></i>
                             </button>
 
-                            <!-- Desktop: visible / Mobile: hidden -->
                             <button
                                 type="button"
                                 class="header__option-button header__option-button--desktop-only"
@@ -212,8 +211,11 @@
         </header>
 
 
-        <!-- Not started state -->
-        <section id="typing-test-app" class="typing-test-app typing-test-app--not-started">
+        <!-- Typing test -->
+        <section
+            id="typing-test-app"
+            class="typing-test-app typing-test-app--not-started"
+        >
 
             <div class="typing-test-app__container">
 
@@ -225,8 +227,8 @@
                 ></div>
 
 
-                <!-- Added: not-started overlay -->
-                <div id="typing-test-app__start" class="typing-test-app__start">
+                <!-- Start overlay -->
+                <div class="typing-test-app__start">
 
                     <button
                         type="button"
@@ -235,11 +237,26 @@
                         Start Typing Test
                     </button>
 
-                    <p id="typing-test-app__start-hint" class="typing-test-app__start-hint">
+                    <p class="typing-test-app__start-hint">
                         Or click the text and start typing
                     </p>
 
                 </div>
+
+            </div>
+
+
+            <!-- Restart -->
+            <div class="typing-test-app__restart">
+
+                <div class="typing-test-app__restart-divider"></div>
+
+                <button
+                    type="button"
+                    class="typing-test-app__restart-button"
+                >
+                    Restart Test
+                </button>
 
             </div>
 

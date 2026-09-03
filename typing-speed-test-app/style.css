@@ -293,8 +293,6 @@ img {
 
 .header__option-button:hover {
     border-color: var(--clr-blue-500);
-    color: var(--clr-blue-500);
-
 }
 
 
@@ -306,7 +304,6 @@ img {
 .header__option-button:focus{
 
     outline: 2px solid var(--clr-blue-500);
-    color: var(--clr-blue-500);
     
 }
 
@@ -427,26 +424,52 @@ img {
 }
 
 
-span.current{
+/* =====================================
+   RESTART TEST
+   ===================================== */
+
+.typing-test-app__restart {
+    display: none;
+}
+
+.typing-test-app--started .typing-test-app__restart {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.typing-test-app__restart-divider {
+    width: 100%;
+    height: 1px;
+
+    background-color: var(--clr-neutral-500);
+    opacity: 0.5;
+}
+
+.typing-test-app__restart-button {
+    margin-top: 2.5rem;
+
+    padding: 1rem 2rem;
+
+    border-radius: 0.8rem;
 
     background-color: var(--clr-neutral-800);
+    color: var(--clr-neutral-0);
+
+    font-size: 1.4rem;
+    font-weight: var(--fw-600);
 }
 
-
-span.correct{
-    color: var(--clr-green-500);
+.typing-test-app__restart-button:hover {
+    background-color: var(--clr-neutral-500);
 }
 
-span.inCorrect{
-    color: var(--clr-red-500);
-    border-bottom: 2px solid var(--clr-red-500);
-}
 
 /* =====================================
    RESPONSIVE
    ===================================== */
 
-@media (max-width: 940px) {
+@media (max-width: 599px) {
 
     .header {
         width: calc(100% - 3.2rem);
@@ -454,7 +477,7 @@ span.inCorrect{
 
     .header__logo-image{
 
-        width: 3.7rem;
+        width: 2.7rem;
     }
 
     /* Header top */
