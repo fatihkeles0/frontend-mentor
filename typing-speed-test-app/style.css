@@ -464,6 +464,18 @@ img {
     background-color: var(--clr-neutral-500);
 }
 
+span.current {
+    background-color: var(--clr-neutral-800);
+}
+
+span.correct {
+    color: var(--clr-green-500);
+}
+
+span.inCorrect {
+    color: var(--clr-red-500);
+}
+
 
 /* =====================================
    RESPONSIVE
@@ -592,7 +604,7 @@ img {
     }
 
 
-    /* Mobile'da yalnızca seçili seçenek görünür */
+
     .header__option-button--desktop-only {
         display: none;
     }

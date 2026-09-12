@@ -5,12 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href="./assets/images/favicon-32x32.png"
-    >
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
 
     <title>Frontend Mentor | Typing Speed Test</title>
 
@@ -18,19 +13,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap"
-        rel="stylesheet"
-    >
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css"
-        integrity="sha512-QeR2VH+lsBE5LSAe1Q5EnTBbe7XTBubt8dG93Y7gidSgdMCrvNqKcfKAMyN96SV8KDbZVTDXChatu5G2KQGzg=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    >
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.min.css">
 
     <link rel="stylesheet" href="style.css">
 
@@ -47,25 +33,14 @@
             <div class="header__information">
 
                 <picture class="header__logo">
-                    <source
-                        media="(min-width: 600px)"
-                        srcset="assets/images/logo-large.svg"
-                    >
+                    <source media="(min-width: 600px)" srcset="assets/images/logo-large.svg">
 
-                    <img
-                        src="assets/images/logo-small.svg"
-                        alt="Typing Speed Test"
-                        class="header__logo-image"
-                    >
+                    <img src="assets/images/logo-small.svg" alt="Typing Speed Test" class="header__logo-image">
                 </picture>
 
                 <div class="header__personal-best">
 
-                    <img
-                        src="assets/images/icon-personal-best.svg"
-                        alt=""
-                        class="header__personal-best-icon"
-                    >
+                    <img src="assets/images/icon-personal-best.svg" alt="" class="header__personal-best-icon">
 
                     <p class="header__personal-best-text">
 
@@ -73,10 +48,7 @@
                             Personal best:
                         </span>
 
-                        <span
-                            id="WPM-value"
-                            class="header__personal-best-value"
-                        >
+                        <span id="WPM-value" class="header__personal-best-value">
                             00 WPM
                         </span>
 
@@ -145,24 +117,15 @@
 
                         <div class="header__option-buttons">
 
-                            <button
-                                type="button"
-                                class="header__option-button header__option-button--desktop-only"
-                            >
+                            <button type="button" class="header__option-button header__option-button--desktop-only">
                                 Easy
                             </button>
 
-                            <button
-                                type="button"
-                                class="header__option-button header__option-button--desktop-only"
-                            >
+                            <button type="button" class="header__option-button header__option-button--desktop-only">
                                 Medium
                             </button>
 
-                            <button
-                                type="button"
-                                class="header__option-button"
-                            >
+                            <button type="button" class="header__option-button">
                                 <span>Hard</span>
 
                                 <i class="fa-solid fa-angle-down"></i>
@@ -184,19 +147,13 @@
 
                         <div class="header__option-buttons">
 
-                            <button
-                                type="button"
-                                class="header__option-button"
-                            >
+                            <button type="button" class="header__option-button">
                                 <span>Timed (60s)</span>
 
                                 <i class="fa-solid fa-angle-down"></i>
                             </button>
 
-                            <button
-                                type="button"
-                                class="header__option-button header__option-button--desktop-only"
-                            >
+                            <button type="button" class="header__option-button header__option-button--desktop-only">
                                 Passage
                             </button>
 
@@ -212,32 +169,22 @@
 
 
         <!-- Typing test -->
-        <section
-            id="typing-test-app"
-            class="typing-test-app typing-test-app--not-started"
-        >
+        <section id="typing-test-app" class="typing-test-app typing-test-app--not-started">
 
             <div class="typing-test-app__container">
 
                 <!-- Passage -->
-                <div
-                    id="typing-text"
-                    class="typing-text"
-                    aria-live="polite"
-                ></div>
+                <div id="typing-text" class="typing-text" aria-live="polite"></div>
 
 
                 <!-- Start overlay -->
                 <div class="typing-test-app__start">
 
-                    <button
-                        type="button"
-                        class="typing-test-app__start-button"
-                    >
+                    <button type="button" class="typing-test-app__start-button">
                         Start Typing Test
                     </button>
 
-                    <p class="typing-test-app__start-hint">
+                    <p class="typing-test-app__start-hint" id="typing-test-app__start-hint">
                         Or click the text and start typing
                     </p>
 
@@ -251,10 +198,7 @@
 
                 <div class="typing-test-app__restart-divider"></div>
 
-                <button
-                    type="button"
-                    class="typing-test-app__restart-button"
-                >
+                <button type="button" class="typing-test-app__restart-button" id="typing-test-app__restart-button">
                     Restart Test
                 </button>
 
