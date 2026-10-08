@@ -85,6 +85,7 @@ function run() {
         currentText = "";
         isFinished = false;
         getRandomTextWithIndex(data);
+        isTimerStarted = false;
         time.textContent = 60;
     });
 }
