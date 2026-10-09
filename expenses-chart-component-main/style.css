@@ -1,0 +1,217 @@
+:root{
+
+    /* Primary colors */
+    --clr-primary-red-500 : hsl(10, 79%, 65%);
+    --clr-primary-blue-300 : hsl(186, 34%, 65%);
+    
+    /* Neutral colors */
+    --clr-neutral-brown-950 : hsl(25, 47%, 15%);
+    --clr-neutral-brown-400 : hsl(28deg 25.01% 81.31%);
+    --clr-neutral-red-100 : hsl(26, 66%, 93%);
+    /* font */
+    --ff-primary: "Sora", sans-serif;
+    --fw-400: 400;
+    --fw-700: 700;
+
+}
+
+
+/* =========================
+   RESET
+========================= */
+
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+
+body{
+
+    margin: 0;
+    padding: 0;
+
+    line-height: 1.5;
+    
+    font-family: var(--ff-primary);
+    font-size: 1.8rem;
+
+    background-color: var(--clr-neutral-brown-400);
+
+}
+
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+
+/* =========================
+   PAGE LAYOUT
+========================= */
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    padding: 2rem 1.6rem;
+}
+
+/* Ana component'in genişliği */
+
+.expenses-chart {
+    width: min(100%, 45rem);
+}
+
+/* =========================
+   BALANCE
+========================= */
+
+.expenses-chart__balance {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+
+    background-color: var(--clr-primary-red-500);
+    color: #fff;
+    border-radius: 1rem;
+}
+
+/* =========================
+   CHART CONTENT
+========================= */
+
+.expenses-chart__content {
+    width: 100%;
+    padding: 2.4rem 2rem;
+
+    background-color: #fff;
+    border-radius: 1rem;
+}
+
+.expenses-chart__title {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+}
+
+/* =========================
+   CHART BARS
+========================= */
+
+.expenses-chart__bars {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: clamp(0.6rem, 2.5vw, 1.6rem);
+
+    width: 100%;
+    margin: 2.4rem auto 0;
+    padding-bottom: 2rem;
+
+    border-bottom: 1px solid #bab7b7;
+
+    color: #6c6767;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.expenses-chart__day {
+    flex: 1;
+    min-width: 0;
+}
+
+.expenses-chart__bar {
+    width: 100%;
+    max-width: 3rem;
+    height: 4.5rem;
+
+    margin: 0 auto 0.5rem;
+
+    background-color: var(--clr-primary-red-500);
+    border-radius: 0.4rem 0.4rem 0 0;
+}
+
+.expenses-chart__day-label {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+/* =========================
+   SUMMARY
+========================= */
+
+.expenses-chart__summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+
+    margin-top: 1.5rem;
+    padding: 1rem 0;
+
+    font-weight: 700;
+}
+
+.expenses-chart__summary-label {
+    font-size: 1.2rem;
+    color: #9b9693;
+}
+
+.expenses-chart__summary-amount {
+    font-size: clamp(2.4rem, 6vw, 3rem);
+}
+
+.expenses-chart__summary-change {
+    font-size: 1.2rem;
+    text-align: right;
+}
+
+.expenses-chart__summary-percentage {
+    font-weight: 700;
+}
+
+/* =========================
+   SMALL SCREENS
+========================= */
+
+@media (max-width: 360px) {
+    .expenses-chart__content {
+        padding: 2rem 1.4rem;
+    }
+
+    .expenses-chart__balance {
+        padding: 1.4rem;
+    }
+
+    .expenses-chart__bars {
+        gap: 0.6rem;
+    }
+
+    .expenses-chart__summary {
+        padding-inline: 0;
+    }
+}
+
+
+
+
+
+
