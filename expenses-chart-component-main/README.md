@@ -9,7 +9,6 @@ This is my solution to the Tip Calculator App challenge on Frontend Mentor.
 | Original Design | My Solution |
 |---|---|
 | ![Original Design](design/desktop-design.jpg) | ![My Solution](design/my-solution.png) |
-<!-- | ![Original Design](images/mobile-design.jpg) | ![My Solution](images/my-solution-mobile.jpg) | -->
 
 ## Links
 
@@ -18,6 +17,6 @@ This is my solution to the Tip Calculator App challenge on Frontend Mentor.
 
 ## Built with
 
-- HTML5
+- HTML
 - CSS
 - Vanilla JavaScript
